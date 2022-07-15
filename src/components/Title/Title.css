@@ -1,0 +1,8 @@
+/*TITLE*/
+.title {
+  position: fixed;
+  top: 5%;
+  left: 3%;
+  cursor: default;
+  z-index: 10;
+}
