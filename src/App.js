@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Title from './components/Title/Title';
 import Menu from './components/Menu/Menu';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
+import Editor from './components/Editor/Editor';
 
 function App(props) {
   const [color, setColor] = useState('red');
@@ -30,6 +31,7 @@ function App(props) {
       <div className='App' style={{ backgroundColor: backColor }}>
         <Title font={font} navColor={navColor} />
         <Menu font={font} navColor={navColor} toggleClick={toggleClick} />
+        <Editor />
       </div>
     </FullScreen>
   );

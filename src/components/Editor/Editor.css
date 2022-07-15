@@ -1,0 +1,9 @@
+.editor {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  width: 60%;
+  height: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
