@@ -5,9 +5,12 @@ import { EDITOR_JS_TOOLS } from './tools';
 
 const ReactEditorJS = createReactEditorJS();
 
-function Editor() {
+function Editor(props) {
   return (
-    <div className='editor'>
+    <div
+      className={`editor ${props.isFocus ? 'ce-block--focused' : ''}`}
+      style={{ fontFamily: props.font, color: props.color }}
+    >
       <ReactEditorJS tools={EDITOR_JS_TOOLS} />
     </div>
   );

@@ -6,4 +6,8 @@
   height: 50%;
   transform: translateX(-50%);
   cursor: pointer;
+  z-index: 50;
+}
+.ce-block--focused {
+  z-index: 300;
 }

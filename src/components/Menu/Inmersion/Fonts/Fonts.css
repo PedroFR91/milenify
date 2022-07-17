@@ -1,0 +1,41 @@
+.fonts {
+  width: 95%;
+  margin: 2px auto;
+  height: 16%;
+  border-bottom: 1px solid black;
+}
+.fonts-container {
+  width: 280px;
+  height: 400px;
+  border-radius: 12.5px;
+  position: fixed;
+  bottom: 70px;
+  left: 70px;
+  color: #dddddf;
+  background-color: #5c5c66;
+  z-index: 10;
+  overflow-y: scroll;
+}
+ul {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  list-style: none;
+}
+li {
+  height: 40px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+li:hover {
+  background-color: #f6ac8f;
+  list-style: symbols(cyclic '\u2713');
+}
+.fonts ::-webkit-scrollbar {
+  background: transparent;
+}
+.fonts ::-webkit-scrollbar-thumb {
+  background: #2e2e32;
+  border-radius: 10px;
+  width: 5px;
+}

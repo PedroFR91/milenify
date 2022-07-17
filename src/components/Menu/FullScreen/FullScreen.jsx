@@ -3,7 +3,12 @@ import './FullScreen.css';
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 function FullScreen(props) {
   return (
-    <div className='fullscreen' onClick={props.toggleClick}>
+    <div
+      className={`fullscreen ${
+        props.isClickedFS ? 'activefs' : props.navColor
+      }`}
+      onClick={props.toggleClickFS}
+    >
       <div className='marginRight'>
         <OpenInFullIcon />
       </div>

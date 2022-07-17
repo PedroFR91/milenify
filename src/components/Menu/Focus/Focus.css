@@ -1,0 +1,9 @@
+.focus {
+  display: flex;
+  width: 150px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.activefc {
+  color: red;
+}
