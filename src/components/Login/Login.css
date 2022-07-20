@@ -1,0 +1,9 @@
+.login {
+  position: fixed;
+  top: 5%;
+  right: 3%;
+  width: 200px;
+  height: 30px;
+  font-family: 'Lexend Deca';
+  z-index: 20;
+}

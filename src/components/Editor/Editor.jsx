@@ -8,8 +8,9 @@ const ReactEditorJS = createReactEditorJS();
 function Editor(props) {
   return (
     <div
-      className={`editor ${props.isFocus ? 'ce-block--focused' : ''}`}
+      className={`editor ${props.isFocus ? 'focuseditor' : props.color}`}
       style={{ fontFamily: props.font, color: props.color }}
+      onKeyDown={props.playkey}
     >
       <ReactEditorJS tools={EDITOR_JS_TOOLS} />
     </div>

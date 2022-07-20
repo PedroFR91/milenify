@@ -23,6 +23,151 @@
   left: 0;
   cursor: default;
 }
+h1 {
+  font-size: 56px;
+  letter-spacing: 1%;
+  font-weight: normal;
+}
+h2 {
+  font-size: 46px;
+  letter-spacing: 1.1%;
+  font-weight: 400;
+}
+h3 {
+  font-size: 40px;
+  letter-spacing: 1.2%;
+  font-weight: 500;
+}
+h4 {
+  font-size: 36px;
+  letter-spacing: 1.3%;
+  font-weight: 500;
+}
+h5 {
+  font-size: 32px;
+  letter-spacing: 1.3%;
+  font-weight: 500;
+}
+h6 {
+  font-size: 24px;
+  letter-spacing: 1.3%;
+  font-weight: 500;
+}
+ul {
+  list-style: none;
+}
+.quote {
+  font-size: 20px;
+  letter-spacing: 1.3%;
+  font-weight: 300;
+  line-height: 30px;
+}
+.paragraph {
+  font-size: 16px;
+  letter-spacing: 1.3%;
+  font-weight: 400;
+  line-height: 24px;
+}
+.link {
+  font-size: 16px;
+  letter-spacing: 1.3%;
+  font-weight: 600;
+  line-height: 24px;
+}
+.caption {
+  font-size: 14px;
+  letter-spacing: 1.3%;
+  font-weight: 300;
+}
+.menuitems {
+  font-size: 14px;
+  letter-spacing: 1.5%;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.menucaption {
+  font-size: 11px;
+  letter-spacing: 1.5%;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.calltab {
+  font-size: 20px;
+  letter-spacing: 1.5%;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+/*Shadow*/
+.shadow {
+  /* XL */
+  box-shadow: 0px 0px 4px rgba(17, 19, 48, 0.04),
+    0px 8px 16px rgba(17, 19, 48, 0.08);
+}
+/*Border-Radius*/
+.border-radius {
+  border-radius: 12.5px;
+}
+/*Color Palette*/
+.light {
+  color: #fdfdfd;
+}
+.dark {
+  color: #5b5c65;
+}
+.darklight {
+  color: #5b5c6580;
+}
+.primary {
+  color: #f6ac8f;
+}
+.primary-light {
+  color: #fee8d3;
+}
+.primary-dark {
+  color: #d37f68;
+}
+.secondary {
+  color: #9ea49f;
+}
+.secondary-light {
+  color: #f2f2f7;
+}
+.secondary-alternative {
+  color: #c2c8c3;
+}
+.garden {
+  color: #67b65b;
+}
+.garden-light {
+  color: #d7f7c6;
+}
+.garden-dark {
+  color: #11571f;
+}
+.aguamarina {
+  color: #47b9b6;
+}
+.aguamarina-light {
+  color: #d8fbee;
+}
+.aguamarina-dark {
+  color: #1d7685;
+}
+.yellow {
+  color: #f8b90a;
+}
+.yellow-light {
+  color: #fef7cf;
+}
+.yellow-dark {
+  color: #d4980e;
+}
+.achiote {
+  color: #841452;
+}
+.red {
+  color: #eb5759;
+}
 .marginRight {
   margin-right: 15px;
 }

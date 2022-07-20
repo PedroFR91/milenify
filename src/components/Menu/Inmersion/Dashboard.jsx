@@ -9,8 +9,15 @@ function Dashboard(props) {
   return (
     <div className='dashboard'>
       <Fonts font={props.font} setFont={props.setFont} />
-      <KeySound />
-      <AmbientSound />
+      <KeySound setKeytoplay={props.setKeytoplay} />
+      <AmbientSound
+        showSounds={props.showSounds}
+        setShowSounds={props.setShowSounds}
+        sound={props.sound}
+        setSound={props.setSound}
+        play={props.play}
+        stop={props.stop}
+      />
       <Statics
         setColor={props.setColor}
         setBackColor={props.setBackColor}
