@@ -1,7 +1,7 @@
 import React from 'react';
-import './Connectivity.css';
+
 function Connectivity() {
-  return <div>Connectivity</div>;
+  return <div></div>;
 }
 
 export default Connectivity;

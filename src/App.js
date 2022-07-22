@@ -13,13 +13,12 @@ import BewitchedForest from './components/Menu/Inmersion/Styles/Dynamics/backgro
 import Connectivity from './components/Menu/Inmersion/Styles/Dynamics/backgrounds/Connectivity';
 import Login from './components/Login/Login';
 import Export from './components/Export/Export';
-import html2canvas from 'html2canvas';
-import { jsPDF } from 'jspdf';
-import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
 import { createReactEditorJS } from 'react-editor-js';
 import useSound from 'use-sound';
 import twfk from './assets/audio/keys/tw1k.wav';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 
 const ReactEditorJS = createReactEditorJS();
 
@@ -75,30 +74,43 @@ function App(props) {
 
   const createPDF = async () => {
     const pdf = new jsPDF('portrait', 'pt', 'a4');
-    const data = await html2canvas(document.querySelector('#pdf'));
-    const img = data.toDataURL('image/png');
-    const imgProperties = pdf.getImageProperties(img);
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
-    pdf.addImage(img, 'PNG', 0, 0, pdfWidth - 30, pdfHeight - 30);
-    pdf.save('iwriter.pdf');
-    console.log('Hola desde createpdf');
+    var datemilseg = Date.now();
+    const data = await html2canvas(document.querySelector('#pdf'), {
+      scale: '5',
+    }).then((canvas) => {
+      console.log('Capturando');
+      var imgFile = canvas.toDataURL('image/png');
+      pdf.addImage(imgFile, 'JPEG', 5, 5, 1000, 1000);
+      pdf.save('iwriter_' + `${datemilseg.toString()}` + '.pdf');
+    });
   };
+
   const html = ReactDOMServer.renderToString(<ReactEditorJS />);
   const exportHtml = html.toString();
+  const [keySound, setKeySound] = useState('Typewriter 1');
 
   const [keytoplay, setKeytoplay] = useState(twfk);
-  const [playkey] = useSound(keytoplay);
 
+  const [other, setOther] = useState(twfk);
+  const [space, setSpace] = useState();
+  const [enter, setEnter] = useState();
+  const [playkey] = useSound(other);
+
+  const [editorClicked, setEditorClicked] = useState(false);
+
+  function toggleEditorClick() {
+    setEditorClicked(!editorClicked);
+  }
   return (
     <FullScreen handle={handle}>
       <div className='App' style={{ backgroundColor: backColor }}>
         <Title navColor={navColor} />
         <Login navColor={navColor} />
         <Export
+          setColor={setColor}
           navColor={navColor}
-          createPDF={createPDF}
           exportHtml={exportHtml}
+          createPDF={createPDF}
         />
         <Menu
           navColor={navColor}
@@ -109,7 +121,15 @@ function App(props) {
           isFocus={isFocus}
           toggleFocus={toggleFocus}
         />
-        <Editor font={font} color={color} isFocus={isFocus} playkey={playkey} />
+        <Editor
+          font={font}
+          color={color}
+          isFocus={isFocus}
+          setOther={setOther}
+          playkey={playkey}
+          editorClicked={editorClicked}
+          toggleEditorClick={toggleEditorClick}
+        />
         {isOpen && (
           <Dashboard
             font={font}
@@ -129,7 +149,9 @@ function App(props) {
             setVoyage={setVoyage}
             setForest={setForest}
             setConnectivity={setConnectivity}
-            setKeytoplay={setKeytoplay}
+            setOther={setOther}
+            setKeySound={setKeySound}
+            keySound={keySound}
           />
         )}
         {starry && <StarryNights />}

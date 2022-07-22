@@ -29,12 +29,10 @@ function KeySound(props) {
     setShowKeys(true);
   }
 
-  const [keysound, setKeysound] = useState('Typewriter 1');
-
   return (
     <div className='keysound'>
       <div>Sonido de teclas</div>
-      <div onClick={viewKeys}>{keysound}</div>
+      <div onClick={viewKeys}>{props.keySound}</div>
       {showKeys && (
         <div className='fonts-container'>
           <ul>
@@ -43,8 +41,8 @@ function KeySound(props) {
                 fontFamily: 'Lexend Deca',
               }}
               onClick={() => {
-                props.setKeytoplay(silence);
-                setKeysound('Sin sonido');
+                props.setOther(silence);
+                props.setKeySound('Sin sonido');
                 setShowKeys(false);
               }}
             >
@@ -54,9 +52,9 @@ function KeySound(props) {
               style={{
                 fontFamily: 'Lexend Deca',
               }}
-              onClick={() => {
-                props.setKeytoplay(twfk);
-                setKeysound('Typewriter 1');
+              onClick={(e) => {
+                props.setOther(twfk);
+                props.setKeySound('Typewriter 1');
                 setShowKeys(false);
               }}
             >
@@ -67,8 +65,8 @@ function KeySound(props) {
                 fontFamily: 'Lexend Deca',
               }}
               onClick={() => {
-                props.setKeytoplay(twsk);
-                setKeysound('Typewriter 2');
+                props.setOther(twsk);
+                props.setKeySound('Typewriter 2');
                 setShowKeys(false);
               }}
             >
@@ -79,8 +77,8 @@ function KeySound(props) {
                 fontFamily: 'Lexend Deca',
               }}
               onClick={() => {
-                props.setKeytoplay(rt1k);
-                setKeysound('Rusty Typewriter');
+                props.setOther(rt1k);
+                props.setKeySound('Rusty Typewriter');
                 setShowKeys(false);
               }}
             >
@@ -91,8 +89,8 @@ function KeySound(props) {
                 fontFamily: 'Lexend Deca',
               }}
               onClick={() => {
-                props.setKeytoplay(rk1k);
-                setKeysound('Rusty Keyboard');
+                props.setOther(rk1k);
+                props.setKeySound('Rusty Keyboard');
                 setShowKeys(false);
               }}
             >
@@ -103,8 +101,8 @@ function KeySound(props) {
                 fontFamily: 'Lexend Deca',
               }}
               onClick={() => {
-                props.setKeytoplay(d1k);
-                setKeysound('Digital 1');
+                props.setOther(d1k);
+                props.setKeySound('Digital 1');
                 setShowKeys(false);
               }}
             >
@@ -115,8 +113,8 @@ function KeySound(props) {
                 fontFamily: 'Lexend Deca',
               }}
               onClick={() => {
-                props.setKeytoplay(d2);
-                setKeysound('Digital 2');
+                props.setOther(d2);
+                props.setKeySound('Digital 2');
                 setShowKeys(false);
               }}
             >
@@ -127,8 +125,8 @@ function KeySound(props) {
                 fontFamily: 'Lexend Deca',
               }}
               onClick={() => {
-                props.setKeytoplay(d3);
-                setKeysound('Digital 3');
+                props.setOther(d3);
+                props.setKeySound('Digital 3');
                 setShowKeys(false);
               }}
             >
@@ -139,8 +137,8 @@ function KeySound(props) {
                 fontFamily: 'Lexend Deca',
               }}
               onClick={() => {
-                props.setKeytoplay(m1);
-                setKeysound('Mobile 1');
+                props.setOther(m1);
+                props.setKeySound('Mobile 1');
                 setShowKeys(false);
               }}
             >
@@ -151,8 +149,8 @@ function KeySound(props) {
                 fontFamily: 'Lexend Deca',
               }}
               onClick={() => {
-                props.setKeytoplay(m2);
-                setKeysound('Mobile 2');
+                props.setOther(m2);
+                props.setKeySound('Mobile 2');
                 setShowKeys(false);
               }}
             >

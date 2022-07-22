@@ -9,7 +9,6 @@ function Focus(props) {
       className={`focus ${props.isFocus ? 'activefc' : props.navColor}`}
       onClick={(e) => {
         props.toggleFocus();
-        console.log('focus');
       }}
     >
       <div className='marginRight'>

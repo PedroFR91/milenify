@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
 import HtmlIcon from '@mui/icons-material/Html';
 import { auth } from '../../firebase';
-
 import './Export.css';
+import { useReactToPrint } from 'react-to-print';
 
 function Export(props) {
   const user = auth.currentUser;
@@ -69,7 +69,7 @@ function Export(props) {
               width: '180px',
               justifyContent: 'space-between',
             }}
-            onClick={() => props.createPDF}
+            onClick={props.createPDF}
           >
             <div>EXPORT TO PDF</div>
             <div>
