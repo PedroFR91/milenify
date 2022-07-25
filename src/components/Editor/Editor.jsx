@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Editor.css';
 import { createReactEditorJS } from 'react-editor-js';
 import { EDITOR_JS_TOOLS } from './tools';
@@ -30,16 +30,29 @@ function Editor(props) {
   function soundkey() {
     props.playkey();
   }
-
   const editorCore = React.useRef(null);
+
+  const initialData = {
+    blocks: [
+      { type: 'header', data: { text: 'Título', level: 1 } },
+      {
+        type: 'paragraph',
+        data: { text: 'Empieza a escribir aquí con o sín título' },
+      },
+    ],
+  };
+
+  const [data, setData] = useState(initialData);
 
   const handleInitialize = React.useCallback((instance) => {
     editorCore.current = instance;
-    console.log('ini');
   }, []);
 
   const handleSave = React.useCallback(async () => {
     const savedData = await editorCore.current.save();
+    setData(savedData);
+    console.log(data.blocks[1].data.text);
+    console.log(savedData);
   }, []);
 
   return (
@@ -54,6 +67,7 @@ function Editor(props) {
       }}
       onClick={(e) => {
         props.toggleEditorClick();
+        handleSave();
       }}
       onKeyDown={(e) => {
         e.code === 'Space'
@@ -66,17 +80,10 @@ function Editor(props) {
       id='pdf'
     >
       <ReactEditorJS
+        editorCore={editorCore}
+        onInitialize={handleInitialize}
         tools={EDITOR_JS_TOOLS}
-        editorInstance={(instance) => (this.editorInstance = instance)}
-        defaultValue={{
-          blocks: [
-            { type: 'header', data: { text: 'Título', level: 1 } },
-            {
-              type: 'paragraph',
-              data: { text: 'Empieza a escribir aquí con o sín título' },
-            },
-          ],
-        }}
+        defaultValue={initialData}
       />
     </div>
   );

@@ -80,7 +80,7 @@ function App(props) {
     }).then((canvas) => {
       console.log('Capturando');
       var imgFile = canvas.toDataURL('image/png');
-      pdf.addImage(imgFile, 'JPEG', 5, 5, 1000, 1000);
+      pdf.addImage(imgFile, 'JPEG', 5, 5, 600, 600);
       pdf.save('iwriter_' + `${datemilseg.toString()}` + '.pdf');
     });
   };
