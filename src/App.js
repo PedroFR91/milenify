@@ -19,6 +19,7 @@ import useSound from 'use-sound';
 import twfk from './assets/audio/keys/tw1k.wav';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import output from './output.mp3';
 
 const ReactEditorJS = createReactEditorJS();
 
@@ -96,6 +97,8 @@ function App(props) {
   const [enter, setEnter] = useState();
   const [playkey] = useSound(other);
 
+  const [lector, { stop, pause }] = useSound(output);
+
   const [editorClicked, setEditorClicked] = useState(false);
 
   function toggleEditorClick() {
@@ -104,6 +107,23 @@ function App(props) {
   return (
     <FullScreen handle={handle}>
       <div className='App' style={{ backgroundColor: backColor }}>
+        <div
+          style={{
+            position: 'fixed',
+            width: '100px',
+            bottom: '30px',
+            left: '50%',
+            translateX: '50%',
+            color: 'white',
+            display: 'flex',
+            justifyContent: 'space-between',
+            zIndex: 300,
+          }}
+        >
+          <div onClick={() => lector()}>play</div>
+          <div onClick={() => pause()}>pause</div>
+          <div onClick={() => stop()}>stop</div>
+        </div>
         <Title navColor={navColor} />
         <Login navColor={navColor} />
         <Export
