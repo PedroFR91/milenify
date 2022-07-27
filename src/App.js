@@ -107,6 +107,23 @@ function App(props) {
   return (
     <FullScreen handle={handle}>
       <div className='App' style={{ backgroundColor: backColor }}>
+        <div
+          style={{
+            position: 'fixed',
+            width: '100px',
+            bottom: '30px',
+            left: '50%',
+            translateX: '50%',
+            color: 'white',
+            display: 'flex',
+            justifyContent: 'space-between',
+            zIndex: 300,
+          }}
+        >
+          <div onClick={() => lector()}>play</div>
+          <div onClick={() => pause()}>pause</div>
+          <div onClick={() => stop()}>stop</div>
+        </div>
         <Title navColor={navColor} />
         <Login navColor={navColor} />
         <Export
