@@ -14,6 +14,7 @@
   border-color: transparent;
 }
 .ce-block--focused {
+  color: white;
 }
 .codex-editor:nth-child(2) {
   display: none;

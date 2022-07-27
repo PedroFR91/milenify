@@ -19,6 +19,7 @@ import useSound from 'use-sound';
 import twfk from './assets/audio/keys/tw1k.wav';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import output from './output.mp3';
 
 const ReactEditorJS = createReactEditorJS();
 
@@ -95,6 +96,8 @@ function App(props) {
   const [space, setSpace] = useState();
   const [enter, setEnter] = useState();
   const [playkey] = useSound(other);
+
+  const [lector, { stop, pause }] = useSound(output);
 
   const [editorClicked, setEditorClicked] = useState(false);
 

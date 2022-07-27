@@ -30,7 +30,7 @@ function Editor(props) {
   function soundkey() {
     props.playkey();
   }
-  const editorCore = React.useRef(null);
+  const editorCore = useRef(null);
 
   const initialData = {
     blocks: [
